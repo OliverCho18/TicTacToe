@@ -1,2 +1,2 @@
 # TicTacToe
-TicTacToe Game
+This is a TicTacToe Game
