@@ -3,6 +3,7 @@ public class game{
   private char currentPlayerMark;
 
   public game(){
+    currentPlayerMark='x';
   }
 
   public void intializeBoard(){
@@ -21,10 +22,11 @@ public class game{
     //print the array
     System.out.println("------");
     for(int i=0;i<3;i++){
-      System.out.println("|");
+      System.out.print("|");
       for(int j=0;j<3;j++){
         System.out.print(board[i][j]+"|");
       }
+      System.out.println();
       System.out.println("------");
     }
   }
@@ -44,12 +46,15 @@ public class game{
 
   public boolean checkForWin(){
     if(checkRowForWin()==true){
+      System.out.println(checkRowForWin());
       return true;
     }
     else if(checkColumnForWin()==true){
+      System.out.println(checkColumnForWin());
       return true;
     }
     else if(checkDiagonalForWin()==true){
+      System.out.println(checkDiagonalForWin());
       return true;
     }
     else{
@@ -105,5 +110,9 @@ public class game{
     else{
       return false;
     }
+  }
+
+  public char getCurrentPlayerMark(){
+    return currentPlayerMark;
   }
 }
