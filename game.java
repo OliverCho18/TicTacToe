@@ -46,15 +46,12 @@ public class game{
 
   public boolean checkForWin(){
     if(checkRowForWin()==true){
-      System.out.println(checkRowForWin());
       return true;
     }
     else if(checkColumnForWin()==true){
-      System.out.println(checkColumnForWin());
       return true;
     }
     else if(checkDiagonalForWin()==true){
-      System.out.println(checkDiagonalForWin());
       return true;
     }
     else{
@@ -65,7 +62,7 @@ public class game{
   public boolean checkRowForWin(){
     boolean result=false;
     for(int i=0;i<3;i++){
-      if((board[i][0]==board[i][1])&&(board[i][0]==board[i][2])){
+      if((board[i][0]==board[i][1])&&(board[i][1]==board[i][2])&&(board[i][0]!='-')){
         result=true;
       }
     }
@@ -75,7 +72,7 @@ public class game{
   public boolean checkColumnForWin(){
     boolean result=false;
     for(int j=0;j<3;j++){
-      if((board[0][j]==board[1][j])&&(board[0][j]==board[2][j])){
+      if((board[0][j]==board[1][j])&&(board[0][j]==board[2][j])&&(board[0][j]!='-')){
         result=true;
       }
     }
@@ -84,10 +81,10 @@ public class game{
 
   public boolean checkDiagonalForWin(){
     boolean result=false;
-    if((board[1][1]==board[2][2])&&(board[1][1]==board[0][0])){
+    if((board[1][1]==board[2][2])&&(board[1][1]==board[0][0])&&(board[1][1]!='-')){
       result=true;
     }
-    if((board[1][1]==board[0][2])&&(board[1][1]==board[2][0])){
+    if((board[1][1]==board[0][2])&&(board[1][1]==board[2][0])&&(board[1][1]!='-')){
       result=true;
     }
     return result;
@@ -95,7 +92,7 @@ public class game{
 
   public void changePlayer(){
     if (currentPlayerMark=='x'){
-      currentPlayerMark='y';
+      currentPlayerMark='o';
     }
     else{
       currentPlayerMark='x';

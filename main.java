@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class main{
   public static void main(String[] args){
     System.out.println("Welcome to Tic Tac Toe");
@@ -12,22 +13,21 @@ public class main{
       int col;
       do{
         System.out.println("Player " + test.getCurrentPlayerMark() + ": please enter a row and column to enter your mark.");
-        System.out.println("Index begins from 0");
-        row=scan.nextInt();
-        col=scan.nextInt();
+        row=scan.nextInt()-1;
+        col=scan.nextInt()-1;
       }
       while(!test.placeMark(row,col));
       test.changePlayer();
     }
     while(!test.checkForWin() && !test.isBoardFull());
     if(test.isBoardFull() && !test.checkForWin()){
-      System.out.println("test ended in a tie");
+      System.out.println("Game ended in a tie");
     }
     else{
       System.out.println("Current Board");
       test.printBoard();
       test.changePlayer();
-      System.out.println(test.getCurrentPlayerMark() + "Wins!");
+      System.out.println(test.getCurrentPlayerMark() + " Wins!");
     }
   }
 }
